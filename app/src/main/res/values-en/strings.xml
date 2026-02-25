@@ -297,14 +297,14 @@
     <string name="features_title">Features</string>
     <string name="features_list">• View Master Mode color grading parameters\n• Support multiple preset styles\n• Pure local operation, data stored locally\n• No internet required</string>
     <string name="data_collection_title">Data Collection</string>
-    <string name="data_collection_desc">To provide better service, we use Umeng Analytics SDK to collect app usage data.</string>
-    <string name="sdk_info_title">Umeng SDK Info</string>
+    <string name="data_collection_desc">To improve app quality, we collect basic usage and crash diagnostics for stability and feature optimization.</string>
+    <string name="sdk_info_title">Analytics Info</string>
     <string name="sdk_name_label">SDK Name</string>
-    <string name="sdk_name">Umeng SDK</string>
+    <string name="sdk_name">In-app Analytics Module</string>
     <string name="service_type_label">Service Type</string>
     <string name="service_type">Analytics</string>
     <string name="collect_info_label">Personal Info Collected</string>
-    <string name="collect_info">Device info (MAC/Android ID/IDFA/GUID/IP, etc.)</string>
+    <string name="collect_info">Feature usage, crash diagnostics, and basic device info (OS version, model).</string>
     <string name="privacy_link_label">Privacy Policy Link:</string>
     <string name="user_rights_title">User Rights</string>
     <string name="user_rights_desc">You have the right to access, correct, and delete your personal information. To exercise these rights, please contact us through the in-app contact information.</string>
@@ -338,7 +338,7 @@
     <string name="feature_3_title">Local Storage</string>
     <string name="feature_3_desc">Pure local operation, data stored locally</string>
     <string name="agree_prefix">I have read and agree to</string>
-    <string name="umeng_notice">• We use Umeng SDK for analytics\n• Collect device info to optimize app experience</string>
+    <string name="analytics_notice">• We collect necessary anonymous analytics\n• Data is only used for stability and feature optimization</string>
     <string name="privacy_hint">Tap User Agreement &amp; Privacy Policy to view details</string>
     <string name="disagree">Disagree</string>
     <string name="agree_and_start">Agree &amp; Start</string>

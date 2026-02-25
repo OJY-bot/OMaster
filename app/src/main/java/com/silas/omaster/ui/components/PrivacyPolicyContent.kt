@@ -104,7 +104,7 @@ fun PrivacyPolicyContent(
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = "https://www.umeng.com/page/policy",
+                    text = stringResource(R.string.privacy_policy),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.primary
                 )

@@ -114,9 +114,7 @@ dependencies {
     // MMKV 读写（腾讯高性能 KV 存储）
     implementation(libs.mmkv)
 
-    // ⚠️ 替换友盟硬编码依赖
-    implementation(libs.umeng.common)
-    implementation(libs.umeng.asms)
+    // Material3 额外依赖
     implementation(libs.androidx.material3)
 
     // 测试依赖（已使用 catalog）

@@ -168,7 +168,7 @@ fun WelcomeDialog(
                             Spacer(modifier = Modifier.height(8.dp))
 
                             Text(
-                                text = stringResource(R.string.umeng_notice),
+                                text = stringResource(R.string.analytics_notice),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = Color.White.copy(alpha = 0.6f),
                                 lineHeight = 18.sp

@@ -1,8 +1,5 @@
 package com.silas.omaster.ui.detail
 
-import android.content.Intent
-import android.net.Uri
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -22,11 +19,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.silas.omaster.R
 import com.silas.omaster.ui.components.OMasterTopAppBar
@@ -38,8 +33,6 @@ import com.silas.omaster.ui.theme.DarkGray
 fun PrivacyPolicyScreen(
     onBack: () -> Unit
 ) {
-    val context = LocalContext.current
-
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -79,7 +72,7 @@ fun PrivacyPolicyScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // 友盟 SDK 信息
+            // 统计信息说明
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(
@@ -112,23 +105,10 @@ fun PrivacyPolicyScreen(
                         value = stringResource(R.string.collect_info)
                     )
 
-                    Column {
-                        Text(
-                            text = stringResource(R.string.privacy_link_label),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = Color.White.copy(alpha = 0.7f)
-                        )
-                        Text(
-                            text = "https://www.umeng.com/page/policy",
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.primary,
-                            textDecoration = TextDecoration.Underline,
-                            modifier = Modifier.clickable {
-                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.umeng.com/page/policy"))
-                                context.startActivity(intent)
-                            }
-                        )
-                    }
+                    PolicyItem(
+                        label = stringResource(R.string.privacy_link_label),
+                        value = stringResource(R.string.privacy_policy)
+                    )
                 }
             }
 

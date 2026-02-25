@@ -238,7 +238,7 @@ fun AboutScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            FooterSection(context)
+            FooterSection()
         }
     }
 }
@@ -745,7 +745,7 @@ private fun DeveloperChip(name: String, url: String, context: android.content.Co
 }
 
 @Composable
-private fun FooterSection(context: android.content.Context) {
+private fun FooterSection() {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -760,11 +760,7 @@ private fun FooterSection(context: android.content.Context) {
             text = stringResource(R.string.privacy_policy),
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.primary.copy(alpha = 0.8f),
-            textDecoration = TextDecoration.Underline,
-            modifier = Modifier.clickable {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.umeng.com/page/policy"))
-                context.startActivity(intent)
-            }
+            textDecoration = TextDecoration.Underline
         )
     }
 }

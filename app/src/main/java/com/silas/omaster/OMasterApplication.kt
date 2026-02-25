@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.silas.omaster.data.local.SettingsManager
 import com.silas.omaster.util.HapticSettings
-import com.umeng.commonsdk.UMConfigure
 
 class OMasterApplication : Application() {
     companion object {
@@ -26,33 +25,6 @@ class OMasterApplication : Application() {
 
         // 初始化震动设置
         HapticSettings.enabled = SettingsManager.getInstance(this).isVibrationEnabled
-
-        // 每次冷启动都调用预初始化（不采集数据）
-        preInitUMeng()
-
-        // 如果用户已同意隐私政策，则调用正式初始化
-        if (hasUserAgreed()) {
-            initUMeng()
-        }
-    }
-
-    /**
-     * 预初始化友盟
-     * 不会采集设备信息，也不会上报数据
-     * 必须在 Application.onCreate 中调用
-     */
-    private fun preInitUMeng() {
-        UMConfigure.setLogEnabled(false)
-        UMConfigure.preInit(this, "698938eb9a7f3764885bbdaa", "default")
-    }
-
-    /**
-     * 正式初始化友盟
-     * 用户同意隐私政策后才能调用
-     * 此时才会采集设备信息并上报数据
-     */
-    fun initUMeng() {
-        UMConfigure.init(this, "698938eb9a7f3764885bbdaa", "default", UMConfigure.DEVICE_TYPE_PHONE, null)
     }
 
     fun hasUserAgreed(): Boolean {

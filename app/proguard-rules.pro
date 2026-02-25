@@ -43,10 +43,6 @@
 # 保留 Serializable
 -keep class * implements java.io.Serializable { *; }
 
-# 保留友盟 SDK
--keep class com.umeng.** { *; }
--dontwarn com.umeng.**
-
 # 保留 Coil 图片加载
 -keep class coil.** { *; }
 -dontwarn coil.**

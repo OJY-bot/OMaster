@@ -26,12 +26,18 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/iCurrer/OMaster/releases">
-    <b>⬇️ 立即下载最新版本</b>
+  <a href="https://github.com/wzcv/OMaster/releases">
+    <b>⬇️ 立即下载(github)</b>
   </a>
 </p>
-
+<p align="center">
+  <a href="https://pan.quark.cn/s/5e71418e54e3">
+    <b>⬇️ 立即下载(夸克网盘)</b>
+  </a>
+</p>
 ---
+## ！注意 
+### 该分支为root分支，仅为安装root以及lsposed框架的oppo,一加，realme品牌的手机提供一键填写参数功能，为避免困扰，分支移除了umeng相关代码，但你仍需遵守原项目的隐私政策，项目root权限仅用于填写参数，不涉及其他功能。如造成任何手机损坏的问题，概不负责，其他的项目问题可以在issue中反馈。
 
 ## 📸 还在为拍照参数而烦恼吗？
 

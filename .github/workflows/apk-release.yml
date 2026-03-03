@@ -1,0 +1,84 @@
+name: Build and Release APK
+
+on:
+  push:
+    branches: [ master, main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Cache Gradle
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*','**/gradle-wrapper.properties') }}
+          restore-keys: ${{ runner.os }}-gradle-
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug --no-daemon
+
+      - name: Prepare APK
+        run: |
+          mkdir -p release
+          cp app/build/outputs/apk/debug/*-universal-*.apk release/OMaster-v1.3.0-root.apk 2>/dev/null || \
+          cp app/build/outputs/apk/debug/*.apk release/OMaster-v1.3.0-root.apk
+          ls -la release/
+
+      - name: Delete old release
+        uses: dev-drprasad/delete-tag-and-release@v1.0
+        with:
+          tag_name: v1.3.0-root
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v1.3.0-root
+          name: OMaster v1.3.0-root (一加15兼容版)
+          body: |
+            ## OMaster v1.3.0-root
+            
+            **支持一加 15 相机版本 6.105.84**
+            
+            ### 修改内容
+            - 增强 CameraHook 兼容性
+            - 支持多种滤镜管理类和方法
+            - 优化数据捕获逻辑
+            
+            ### 安装说明
+            1. 下载下面的 APK 文件
+            2. 安装到手机
+            3. 在 LSPosed 中激活模块
+            4. 勾选 **相机** 应用作用域
+            5. 重启手机
+            6. 打开相机应用，然后打开 OMaster 检查状态
+            
+            ### 注意事项
+            - 需要 Root 权限
+            - 需要 LSPosed 框架
+            - 如果无法捕获数据，请检查 LSPosed 日志
+          files: release/*.apk
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
